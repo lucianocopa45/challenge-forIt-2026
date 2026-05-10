@@ -3,7 +3,6 @@ import type{ Task } from '../models/Task';
 import { taskService } from '../services/taskService'; 
 import TaskCard from './TaskCard';
 import TaskModal from './TaskModal';
-import TaskForm from './TaskForm';
 
 type FilterType = 'todas' | 'pendientes' | 'completadas';
 function TaskList() {
@@ -44,9 +43,6 @@ function TaskList() {
         }
     };
 
-    const handleTaskCreated = (newTask: Task) => {
-        setTasks(prevTasks => [newTask, ...prevTasks]);
-    };
     const handleUpdateList = (updatedTask: Task) => {
         setTasks(prev => prev.map(t => t.id === updatedTask.id ? updatedTask : t));
         setTaskToEdit(null);
@@ -84,8 +80,6 @@ function TaskList() {
             <div style={{ flex: 1 }}>
                 <h1>Mis Tareas</h1>
                 
-                <TaskForm onTaskCreated={handleTaskCreated} />
-
                 <div style={{ marginBottom: '15px', display: 'flex', gap: '10px' }}>
                     {(['todas', 'pendientes', 'completadas'] as FilterType[]).map((f) => (
                         <button 
