@@ -1,1 +1,15 @@
+# Node Modules
+backend/node_modules/
+frontend/node_modules/
 node_modules/
+
+# Variables de entorno (Seguridad)
+.env
+backend/.env
+frontend/.env
+*.env
+
+# Compilación y caché
+dist/
+build/
+.DS_Store
